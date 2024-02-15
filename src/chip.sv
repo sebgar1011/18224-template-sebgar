@@ -27,7 +27,7 @@ module my_chip (
     logic clear, en_min, en_max;
 
     // dp outputs
-    logic [WIDTH-1:0] low_q, high_q;
+    logic [9:0] low_q, high_q;
 
     // next state logic
     always_comb begin
@@ -115,9 +115,9 @@ module my_chip (
     end
 
     // datapath
-    Register #(WIDTH) Register_min_inst(.D(data_in), .en(en_min), .clear, .clock, .Q(low_q));
+    Register #(10) Register_min_inst(.D(data_in), .en(en_min), .clear, .clock, .Q(low_q));
     
-    Register #(WIDTH) Register_max_inst(.D(data_in), .en(en_max), .clear, .clock, .Q(high_q));
+    Register #(10) Register_max_inst(.D(data_in), .en(en_max), .clear, .clock, .Q(high_q));
     assign range = high_q - low_q;
 
 endmodule: my_chip
