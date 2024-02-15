@@ -122,3 +122,15 @@ module my_chip (
 
 endmodule: my_chip
 
+module Register
+    #(parameter W=8)
+    (input logic [W-1:0] D,
+     input logic en, clear, clock,
+     output logic [W-1:0] Q);
+
+    always_ff @(posedge clock)
+        if (en) Q <= D;
+        else if (clear) Q <= {W {1'b0}};
+
+endmodule: Register
+
