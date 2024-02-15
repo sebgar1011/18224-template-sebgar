@@ -1,4 +1,4 @@
-`default_nettype none
+    `default_nettype none
 
 module my_chip (
     input logic [11:0] io_in, // Inputs to your chip
@@ -120,5 +120,5 @@ module my_chip (
     Register #(WIDTH) Register_max_inst(.D(data_in), .en(en_max), .clear, .clock, .Q(high_q));
     assign range = high_q - low_q;
 
-endmodule: RangeFinder
+endmodule: my_chip
 
